@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="こどもむけの ゲームを あつめた あそびば" />
+    <meta name="color-scheme" content="light dark" />
+    <title>あそびば</title>
+    <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
+    <link rel="icon" href="%BASE_URL%icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="%BASE_URL%icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="あそびば" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <svg class="top-bar__deco top-bar__deco--a" viewBox="0 0 100 100" aria-hidden="true"><path data-shape="sunny" /></svg>
+      <svg class="top-bar__deco top-bar__deco--b" viewBox="0 0 100 100" aria-hidden="true"><path data-shape="flower" /></svg>
+      <h1 class="top-bar__title" data-text="title"></h1>
+      <p class="top-bar__subtitle" data-text="subtitle"></p>
+    </header>
+
+    <main class="content">
+      <section id="new-banner" class="banner" role="status" hidden></section>
+      <nav class="sort" aria-labelledby="sort-label">
+        <span id="sort-label" class="visually-hidden" data-text="sortLabel"></span>
+        <div id="sort-chips" class="sort__chips" role="radiogroup" aria-labelledby="sort-label"></div>
+      </nav>
+      <ul id="games" class="grid"></ul>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

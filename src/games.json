@@ -1,0 +1,19 @@
+{
+  "$comment": "配列の順番 = 追加した順（古い順）。新しいゲームは末尾に追加してください。color / shape は省略可（省略時は自動割当）。",
+  "games": [
+    { "id": "kabirunrun", "name": "かびるんるんゲーム", "emoji": "🦠", "url": "https://sakanayuki.github.io/kabi_pub/tap_game.html" },
+    { "id": "illustrator", "name": "おえかき", "emoji": "🖍️", "url": "https://sakanayuki.github.io/cc_illustrator/" },
+    { "id": "ball", "name": "ボールゲーム", "emoji": "⚽", "url": "https://sakanayuki.github.io/cc_ball/" },
+    { "id": "fireworks", "name": "はなび", "emoji": "🎆", "url": "https://sakanayuki.github.io/cc_fireworks/" },
+    { "id": "pachinko", "name": "スマートボール", "emoji": "🎰", "url": "https://sakanayuki.github.io/cc_cf_pachinko/" },
+    { "id": "damdam", "name": "バスケ", "emoji": "🏀", "url": "https://sakanayuki.github.io/cc_damdam/" },
+    { "id": "kingyo", "name": "スーパーボールすくい", "emoji": "🏮", "url": "https://sakanayuki.github.io/cc_kingyo/" },
+    { "id": "nurie", "name": "ぬりえ", "emoji": "🎨", "url": "https://sakanayuki.github.io/cc_nurie/" },
+    { "id": "sticker", "name": "シール", "emoji": "⭐", "url": "https://sakanayuki.github.io/cc_sticker/" },
+    { "id": "flickshot", "name": "メダルショット", "emoji": "🪙", "url": "https://sakanayuki.github.io/cc_flickshot/" },
+    { "id": "hiragana", "name": "ひらがなひょう", "emoji": "📖", "url": "https://sakanayuki.github.io/cc_hiragana/" },
+    { "id": "rakugaki", "name": "らくがきバトル", "emoji": "⚔️", "url": "https://sakanayuki.github.io/cc_rakugaki/" },
+    { "id": "shushu", "name": "シュシュ", "emoji": "🃏", "url": "https://sakanayuki.github.io/cc_shushu/" },
+    { "id": "fishing", "name": "うみづり", "emoji": "🎣", "url": "https://sakanayuki.github.io/cc_fishing/" }
+  ]
+}

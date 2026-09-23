@@ -1,0 +1,23 @@
+{
+  "text": {
+    "title": "あそびば",
+    "subtitle": "あそびたい ゲームを えらんでね",
+    "sortLabel": "ならびかえ",
+    "sortOld": "ふるいじゅん",
+    "sortNew": "あたらしいじゅん",
+    "sortAiueo": "あいうえお",
+    "sortOften": "よくあそぶ",
+    "sortRecent": "さいきんあそんだ",
+    "bannerTitle": "あたらしい ゲームが きたよ！",
+    "bannerClose": "とじる",
+    "newBadge": "New!!"
+  },
+  "emoji": {
+    "sortOld": "🐢",
+    "sortNew": "✨",
+    "sortAiueo": "🔤",
+    "sortOften": "💖",
+    "sortRecent": "⏰",
+    "banner": "🎉"
+  }
+}

@@ -1,0 +1,417 @@
+/* ---------- M3 Expressive トークン（形状・モーション・タイポグラフィ） ---------- */
+:root {
+  color-scheme: light dark;
+
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-extra-extra-large: 48px;
+  --md-sys-shape-corner-full: 999px;
+
+  /* スプリング（spatial: 行き過ぎあり / effects: 行き過ぎなし）を linear() で近似 */
+  --md-sys-motion-spring-spatial: linear(0, 0.188, 0.546, 0.861, 1.052, 1.123, 1.114, 1.072, 1.029, 0.999, 0.986, 0.985, 0.989, 0.995, 0.999, 1.001, 1.002, 1.002, 1.001, 1);
+  --md-sys-motion-spring-default: linear(0, 0.091, 0.28, 0.483, 0.66, 0.796, 0.891, 0.953, 0.988, 1.007, 1.014, 1.015, 1.013, 1.01, 1.007, 1.005, 1.003, 1.001, 1);
+  --md-sys-motion-effects: cubic-bezier(0.34, 0.8, 0.34, 1);
+
+  --font-sans: 'M PLUS Rounded 1c', system-ui, sans-serif;
+  --font-emoji: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
+
+  --gutter: 16px;
+  --columns: 2;
+}
+
+/* M3 のウィンドウサイズクラスで列数を切り替える */
+@media (width >= 600px) { :root { --gutter: 24px; --columns: 3; } }
+@media (width >= 840px) { :root { --columns: 4; } }
+@media (width >= 1200px) { :root { --columns: 5; } }
+@media (width >= 1600px) { :root { --columns: 6; } }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.emoji {
+  font-family: var(--font-emoji);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 3px solid var(--md-sys-color-secondary);
+  outline-offset: 3px;
+}
+
+/* ---------- ヘッダー ---------- */
+.top-bar {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: calc(40px + env(safe-area-inset-top)) var(--gutter) 24px;
+  max-width: 1600px;
+  text-align: center;
+}
+
+.top-bar__title {
+  position: relative;
+  margin: 0;
+  font-size: clamp(3rem, 12vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  color: var(--md-sys-color-primary);
+}
+
+.top-bar__subtitle {
+  position: relative;
+  margin: 8px 0 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface-variant);
+  word-break: keep-all;
+}
+
+.top-bar__deco {
+  position: absolute;
+  pointer-events: none;
+  animation: spin 40s linear infinite;
+}
+
+.top-bar__deco--a {
+  width: 160px;
+  top: -40px;
+  left: -48px;
+  fill: var(--md-sys-color-primary-container);
+}
+
+.top-bar__deco--b {
+  width: 120px;
+  top: 24px;
+  right: -36px;
+  fill: var(--md-sys-color-tertiary-container);
+  animation-direction: reverse;
+}
+
+/* ---------- 本文 ---------- */
+.content {
+  margin: 0 auto;
+  padding: 0 var(--gutter) calc(48px + env(safe-area-inset-bottom));
+  max-width: 1600px;
+}
+
+/* ---------- 新作バナー ---------- */
+.banner {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 20px 56px 20px 20px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  background: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-on-tertiary-container);
+  animation: pop-in 600ms var(--md-sys-motion-spring-spatial) both;
+}
+
+.banner[hidden] {
+  display: none;
+}
+
+.banner--leaving {
+  animation: pop-out 250ms var(--md-sys-motion-effects) both;
+}
+
+.banner__deco {
+  position: absolute;
+  width: 140px;
+  right: -40px;
+  bottom: -60px;
+  fill: var(--md-sys-color-tertiary);
+  opacity: 0.25;
+  animation: spin 12s linear infinite;
+}
+
+.banner__title {
+  position: relative;
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 800;
+  word-break: keep-all;
+}
+
+.banner__names {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.banner__name {
+  padding: 6px 14px;
+  border-radius: var(--md-sys-shape-corner-full);
+  background: var(--card-container);
+  color: var(--card-on-container);
+  font-weight: 700;
+}
+
+.banner__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: var(--md-sys-shape-corner-full);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: border-radius 300ms var(--md-sys-motion-spring-default), background-color 150ms;
+}
+
+.banner__close:hover {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.banner__close:active {
+  border-radius: var(--md-sys-shape-corner-medium);
+}
+
+.banner__close svg {
+  width: 24px;
+  fill: currentColor;
+}
+
+/* ---------- 並び替えチップ ---------- */
+.sort {
+  margin: 0 calc(var(--gutter) * -1) 16px;
+}
+
+.sort__chips {
+  display: flex;
+  gap: 8px;
+  padding: 4px var(--gutter);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: none;
+}
+
+.sort__chips::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 20px 0 14px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-full);
+  background: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-on-surface-variant);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition:
+    border-radius 400ms var(--md-sys-motion-spring-spatial),
+    background-color 200ms var(--md-sys-motion-effects),
+    color 200ms var(--md-sys-motion-effects),
+    scale 300ms var(--md-sys-motion-spring-spatial);
+}
+
+.chip__icon {
+  font-size: 1.375rem;
+}
+
+/* 選ばれたチップは角が四角っぽくモーフィングする（Expressive の選択表現） */
+.chip[aria-checked='true'] {
+  border-color: transparent;
+  border-radius: var(--md-sys-shape-corner-medium);
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.chip:active {
+  scale: 0.94;
+}
+
+/* ---------- ゲームカード ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width >= 600px) {
+  .grid {
+    gap: 16px;
+  }
+}
+
+.card {
+  --press: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  padding: 16px 12px 18px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  background: var(--card-container);
+  color: var(--card-on-container);
+  text-decoration: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  scale: calc(1 - var(--press) * 0.06);
+  transition: border-radius 400ms var(--md-sys-motion-spring-spatial);
+}
+
+.card:active {
+  border-radius: var(--md-sys-shape-corner-extra-extra-large);
+}
+
+.card__art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.card__shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: var(--card-shape);
+  transition: rotate 1200ms var(--md-sys-motion-spring-default);
+}
+
+@media (hover: hover) {
+  .card:hover .card__shape {
+    rotate: 45deg;
+  }
+}
+
+.card__emoji {
+  position: relative;
+  font-size: clamp(3rem, 14vw, 4.5rem);
+  filter: drop-shadow(0 2px 2px rgb(0 0 0 / 0.2));
+}
+
+.card__name {
+  /* スマホ2列でも「かびるんるんゲーム」程度は1行に収まる大きさ */
+  font-size: clamp(0.875rem, 3.9vw, 1.125rem);
+  font-weight: 800;
+  text-align: center;
+  text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* 新作カード：形が回り、絵文字が跳ねる */
+.card--new {
+  outline: 4px solid var(--md-sys-color-tertiary);
+  outline-offset: 3px;
+}
+
+.card--new .card__shape {
+  animation: spin 10s linear infinite;
+}
+
+.card--new .card__emoji {
+  animation: bounce 1.6s var(--md-sys-motion-spring-default) infinite;
+}
+
+.card__badge {
+  position: absolute;
+  top: -10px;
+  right: -6px;
+  padding: 4px 12px;
+  border-radius: var(--md-sys-shape-corner-full);
+  background: var(--md-sys-color-error);
+  color: var(--md-sys-color-on-error);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.25);
+  rotate: 8deg;
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+/* 並び替え時は View Transitions でカードがバネのように移動する */
+::view-transition-group(*) {
+  animation-duration: 600ms;
+  animation-timing-function: var(--md-sys-motion-spring-spatial);
+}
+
+/* ---------- キーフレーム ---------- */
+@keyframes spin {
+  to { rotate: 360deg; }
+}
+
+@keyframes bounce {
+  0%, 60%, 100% { translate: 0 0; }
+  30% { translate: 0 -12%; }
+}
+
+@keyframes wiggle {
+  0%, 100% { rotate: 8deg; }
+  50% { rotate: -4deg; }
+}
+
+@keyframes pop-in {
+  from { opacity: 0; scale: 0.85; }
+}
+
+@keyframes pop-out {
+  to { opacity: 0; scale: 0.9; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
+  ::view-transition-group(*) {
+    animation: none !important;
+    transition: none !important;
+  }
+}
