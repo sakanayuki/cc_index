@@ -14,6 +14,7 @@
     { "id": "hiragana", "name": "ひらがなひょう", "emoji": "📖", "url": "https://sakanayuki.github.io/cc_hiragana/" },
     { "id": "rakugaki", "name": "らくがきバトル", "emoji": "⚔️", "url": "https://sakanayuki.github.io/cc_rakugaki/" },
     { "id": "shushu", "name": "シュシュ", "emoji": "🃏", "url": "https://sakanayuki.github.io/cc_shushu/" },
-    { "id": "fishing", "name": "うみづり", "emoji": "🎣", "url": "https://sakanayuki.github.io/cc_fishing/" }
+    { "id": "fishing", "name": "うみづり", "emoji": "🎣", "url": "https://sakanayuki.github.io/cc_fishing/" },
+    { "id": "bugcatching", "name": "むしとり", "emoji": "🦋", "url": "https://sakanayuki.github.io/cc_bugcatching/" }
   ]
 }
