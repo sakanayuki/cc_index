@@ -19,6 +19,7 @@
     { "id": "fukuwarai", "name": "ふくわらい", "emoji": "😆", "url": "https://sakanayuki.github.io/cc_fukuwarai/" },
     { "id": "kisha", "name": "おもちゃのきしゃ", "emoji": "🚂", "url": "https://sakanayuki.github.io/cc_kisha/" },
     { "id": "puddlerun", "name": "どろんこランナー", "emoji": "🥾", "url": "https://sakanayuki.github.io/cc_puddlerun/" },
-    { "id": "aquarium", "name": "おさかな すいそう", "emoji": "🐠", "url": "https://sakanayuki.github.io/cc_aquarium/" }
+    { "id": "aquarium", "name": "おさかな すいそう", "emoji": "🐠", "url": "https://sakanayuki.github.io/cc_aquarium/" },
+    { "id": "orchestra-td", "name": "オーケストラのゲーム", "emoji": "🎻", "url": "https://sakanayuki.github.io/cc_orchestra_td/" }
   ]
 }
